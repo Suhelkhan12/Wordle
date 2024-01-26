@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .app-background {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: url("/lines.svg"), url("/lines-up.svg"),
+      linear-gradient(#1a1a38, #15151d);
+    background-position: 50% 100%, 50% 0%, 50% 100%, 0 0;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+    background-size: auto, auto, auto, auto;
+    z-index: -1;
+  }
+
+  .button {
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 48px;
+    border-radius: 32px;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0 32px;
+    background-color: #fff;
+    border: 1px solid #000;
+    color: #000;
+    transition: all 0.3s;
+  }
+
+  .button:hover {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+  }
+}
+
+/* 
+background-dard: #1a1a38, #15151d
+*/
