@@ -1,30 +1,21 @@
-# React + TypeScript + Vite
+# Word Gamble
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to Wordle, a classic word puzzle game where your goal is to guess a hidden word within a limited number of attempts. Challenge your vocabulary and deduction skills in this fun and engaging game.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Word Guessing: Try to guess the hidden word by inputting your guesses.
+- Feedback: Receive feedback on your guesses, with correct letters in the correct positions and correct letters in the wrong positions.
+- Limited Attempts: You have a set number of attempts to guess the word. Can you solve it within the limit?
+- Scoring System: Keep track of your performance with a scoring system based on the number of attempts or difficulty level.
+- Responsive Design: Play seamlessly on various devices and screen sizes.
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+**Client:** React, Vite, Typescript
 
-- Configure the top-level `parserOptions` property like this:
+**State management:** Zustand
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+**Styling:** Tailwind Css
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+**Routing:** React Router Dom
