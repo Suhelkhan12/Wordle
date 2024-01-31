@@ -1,6 +1,6 @@
 # Word Gamble
 
-Welcome to Wordle, a classic word puzzle game where your goal is to guess a hidden word within a limited number of attempts. Challenge your vocabulary and deduction skills in this fun and engaging game.
+Welcome to Wrod Gamble, a classic word puzzle game where your goal is to guess a hidden word within a limited number of attempts. Challenge your vocabulary and deduction skills in this fun and engaging game.
 
 ## Features
 
