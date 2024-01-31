@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer utilities {
   .app-background {
     position: fixed;
@@ -33,10 +34,30 @@
     transition: all 0.3s;
   }
 
-  .button:hover {
-    background-color: transparent;
-    color: #fff;
-    border: 1px solid #fff;
+  .modal-overlay{
+    background: rgba(0, 0, 0, .5);
+    position:absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  .close-btn{
+    width:2.5rem;
+    height:2.5rem;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, .1);
+
+  }
+
+  .modal-wrapper{
+    @apply w-full h-screen fixed top-0 left-0 right-0 bottom-0 z-50
+  }
+
+  .modal-card{
+    @apply absolute top-12  md:w-[40rem] w-[90%] md:m-6 bg-slate-700 rounded-md px-8 pb-8 shadow-md
   }
 }
 
