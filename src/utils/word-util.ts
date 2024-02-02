@@ -10,3 +10,38 @@ export async function getRandomWord(){
         console.log(err)
     }
 }
+
+// according to three rules of worlde word state
+export enum LetterStates {
+    Miss,
+    Present,
+    Match
+}
+
+
+// the guess which user entered I have to compare it letter by letter with the original
+// letter and for every letter I'm going to return a letter state that is why this function
+// has LetterStates[] return type. Just think about the rules of wordle..
+export function checkValidityOfGuess(guess:string, generatedWord:string): LetterStates[]{
+    console.log({guess,generatedWord})
+    const guessArray = guess.split('');
+    const generatedWordArray = generatedWord.split('');
+
+    // setting type of result
+    const result: LetterStates[] = [];
+
+    generatedWordArray.forEach((currGeneratedWordLetter, i) => {
+        const currGuessLetter = guessArray[i];
+        
+        if (currGuessLetter === currGeneratedWordLetter) {
+            result.push(LetterStates.Match);
+        } else if (guessArray.includes(currGeneratedWordLetter)) {
+            result.push(LetterStates.Present);
+        } else {
+            result.push(LetterStates.Miss);
+        }
+    });
+    
+
+    return result;
+}
