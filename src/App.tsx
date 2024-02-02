@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./pages/Root";
 import Navbar from "./components/Navbar";
-import Gameplay from "./components/Gameplay";
+import Gameplay from "./pages/Gameplay";
 const Router = createBrowserRouter([
   {
     path: "/",

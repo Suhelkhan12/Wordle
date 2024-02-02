@@ -57,11 +57,8 @@
   }
 
   .modal-card{
-    @apply absolute top-12  md:w-[40rem] w-[90%] md:m-6 bg-slate-700 rounded-md px-8 pb-8 shadow-md
+    @apply absolute top-12  md:w-[40rem] w-[90%] md:m-6 bg-slate-700 rounded-md p-8 shadow-md
   }
 
 }
 
-/* 
-background-dard: #1a1a38, #15151d
-*/

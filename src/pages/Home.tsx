@@ -22,9 +22,9 @@ const Home = () => {
   };
 
   return (
-    <>
+    <main className="h-full flex flex-col justify-center items-center text-white px-4 sm:px-0 ">
       {rulesModalVisibility && <Modal onClose={hideModal} />}
-      <div className="h-full flex flex-col justify-center items-center text-white px-4 sm:px-0 ">
+      <div>
         <div className="flex flex-col items-center gap-2">
           <img
             src={Logo}
@@ -38,12 +38,12 @@ const Home = () => {
             Get 6 chances to guess a 5-letter word.
           </p>
         </div>
-        <div className="flex items-center gap-10">
+        <div className="flex items-center justify-center mt-4 gap-10">
           <Button onClick={showModal}>How to play?</Button>
           <Button onClick={handleGameStart}>Play</Button>
         </div>
       </div>
-    </>
+    </main>
   );
 };
 
