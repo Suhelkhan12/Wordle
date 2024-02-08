@@ -1,3 +1,5 @@
+import { LetterStates } from "../types";
+
 export async function getRandomWord(){
     try{
         const response = await fetch(
@@ -11,12 +13,6 @@ export async function getRandomWord(){
     }
 }
 
-// according to three rules of worlde word state
-export enum LetterStates {
-    Miss,
-    Present,
-    Match
-}
 
 
 // the guess which user entered I have to compare it letter by letter with the original
