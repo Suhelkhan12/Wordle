@@ -7,15 +7,15 @@ type LetterBoxProp = {
 
 // for styling letter according to letterState basesd ongues
 const letterStateStyles = {
-  [LetterStates.Miss]: "bg-red-500",
-  [LetterStates.Present]: "bg-yellow-500",
-  [LetterStates.Match]: "bg-green-500",
+  [LetterStates.Miss]: "bg-red-500 border-red-500",
+  [LetterStates.Present]: "bg-yellow-500 border-yellow-500",
+  [LetterStates.Match]: "bg-green-500 border-green-500",
 };
 
 const LetterBox = ({ letter, letterState }: LetterBoxProp) => {
   // getting the style for individual letter bos
   const letterBoxStyle =
-    letterState && letterState === null ? "" : letterStateStyles[letterState];
+    letterState === undefined ? "" : letterStateStyles[letterState];
 
   return (
     <span
