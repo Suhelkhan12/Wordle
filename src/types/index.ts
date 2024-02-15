@@ -4,3 +4,9 @@ export enum LetterStates {
     Present,
     Match
 }
+
+export interface ZustandStoreState {
+    answer: string|null,
+    guesses: string[],
+    addGuess: (guess:string)=>void,
+}
