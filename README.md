@@ -12,6 +12,8 @@ Welcome to Wrod Gamble, a classic word puzzle game where your goal is to guess a
 
 ## Tech Stack
 
+**Auth:** Clerk
+
 **Client:** React, Vite, Typescript
 
 **State management:** Zustand
