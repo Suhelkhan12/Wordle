@@ -1,24 +1,25 @@
 import { create } from "zustand";
-import { devtools, persist } from "zustand/middleware";
-import { ZustandStoreState } from "../types";
+import { persist } from "zustand/middleware";
 import { getRandomWord } from "../utils/word-util";
 
-export const useStore = create<ZustandStoreState>()(
-  devtools(
-    persist(
-      (set) => ({
-        answer: null,
-        guesses: ["hello", "solar", "penny"],
-        addGuess: (guess: string) =>
-          set((state) => ({
-            guesses: [...state.guesses, guess],
-          })),
-      }),
-      { name: "wordle" }
-    )
-  )
-);
+type StoreState = {
+    answer:string
+    guesses:string[]
+}
 
-getRandomWord().then((word) => {
-  useStore.setState({ answer: word });
-});
+type StoreActions = {
+    addGuess: (userGuess:string)=>void
+}
+
+export const useStore = create<StoreState & StoreActions>()(
+    persist(
+        (set)=>({
+            answer: getRandomWord(),
+            guesses: ['hello', 'store', 'penny', 'suhel', 'vinay'],
+            addGuess: (userGuess)=> set((state)=>({guesses: [...state.guesses,userGuess] }))
+        }),
+        {
+            name:'wordle-word'
+        }
+    )
+)

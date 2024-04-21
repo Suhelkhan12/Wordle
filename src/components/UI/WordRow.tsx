@@ -10,13 +10,14 @@ const WordRow = ({ letter }: WordRowPropType) => {
   const letterArray = letter.split("");
   return (
     <div className="grid grid-cols-5 gap-2 ">
-      {letterArray.map((letter, ind) => (
-        <LetterBox
-          key={Math.random()}
-          letter={letter}
-          letterState={guessState[ind]}
-        />
-      ))}
+      {letterArray.length > 0 &&
+        letterArray.map((letter, ind) => (
+          <LetterBox
+            key={Math.random()}
+            letter={letter}
+            letterState={guessState[ind]}
+          />
+        ))}
     </div>
   );
 };

@@ -1,18 +1,13 @@
 import { LetterStates } from "../types";
+import wordBank from '../../data/workBank.json'
 
-export async function getRandomWord(){
-    try{
-        const response = await fetch(
-            "https://random-word-api.herokuapp.com/word?length=5"
-          );
-          const [word] = await response.json();
-          return word;
-    }catch(err){
-        console.log(err)
-    }
+export function getRandomWord(){
+
+    const randomIndex = Math.floor(Math.random() * wordBank.length);
+    return wordBank[randomIndex]
 }
 
-const word:string = await getRandomWord()
+const word:string =  getRandomWord()
 // the guess which user entered I have to compare it letter by letter with the original
 // letter and for every letter I'm going to return a letter state that is why this function
 // has LetterStates[] return type. Just think about the rules of wordle..
