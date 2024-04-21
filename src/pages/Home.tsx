@@ -43,6 +43,15 @@ const Home = () => {
           <Button onClick={showModal}>How to play?</Button>
           <Button onClick={handleGameStart}>Play</Button>
         </div>
+        <div className="mt-6">
+          <Button
+            onClick={() => {
+              navigate("/zustand");
+            }}
+          >
+            Zustand
+          </Button>
+        </div>
       </div>
     </main>
   );
