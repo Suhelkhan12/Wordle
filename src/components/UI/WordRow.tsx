@@ -6,7 +6,6 @@ type WordRowPropType = {
 
 const WordRow = ({ letter }: WordRowPropType) => {
   const guessState = checkValidityOfGuess(letter);
-  console.log(guessState);
   // we did this so that we can conver our string letter into array and we can easity map over it
   const letterArray = letter.split("");
   return (

@@ -13,7 +13,6 @@ export async function getRandomWord(){
 }
 
 const word:string = await getRandomWord()
-console.log(word)
 // the guess which user entered I have to compare it letter by letter with the original
 // letter and for every letter I'm going to return a letter state that is why this function
 // has LetterStates[] return type. Just think about the rules of wordle..
@@ -23,7 +22,6 @@ console.log(word)
  * allol and smelt :- first l in allol will give match for smelt, simillarly it will give yess for second and third l because l in smelt will always exist
  */
 export function checkValidityOfGuess(guess:string, generatedWord:string = word): LetterStates[]{
-    console.log({guess,generatedWord})
     const guessArray = guess.split('');
     const generatedWordArray = generatedWord.split('');
 

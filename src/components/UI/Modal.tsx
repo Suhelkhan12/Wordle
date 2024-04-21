@@ -42,7 +42,9 @@ const Modal = ({ onClose }: ModalProps) => {
                 <p className="font-semibold text-[18px]">Examples</p>
                 <ul className="flex flex-col gap-4">
                   {examples.map((example) => (
-                    <RuleExample key={example.id} {...example} />
+                    <li key={example.id}>
+                      <RuleExample {...example} />
+                    </li>
                   ))}
                 </ul>
               </div>

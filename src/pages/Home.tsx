@@ -3,10 +3,8 @@ import { useNavigate } from "react-router-dom";
 import Modal from "../components/UI/Modal";
 import Button from "../components/UI/Button";
 import Logo from "../assets/wordle-icon.svg";
-import { useStore } from "../store/store";
+
 const Home = () => {
-  const { answer } = useStore((state) => state);
-  console.log(answer);
   const [rulesModalVisibility, setRulesModalVisibility] = useState<
     boolean | null
   >(null);

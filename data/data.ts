@@ -9,22 +9,22 @@ export const examples = [
         letterId: Math.random()*2000000,
         letters: ['L','U','N','N','H'],
         hint: "L is in the word and in the correct spot.",
-        colorClass: 'bg-green-400',
-        position:0
+        color:'bg-green-500',
+        letterPosition:0
     },
     {   id: Math.random()*100000,
         letterId: Math.random()*200000,
         letters: ['C','O','L','O','R'],
         hint: "R is in the word but in the wrong spot.",
-        colorClass: 'bg-yellow-400',
-        position:4
+        color:'bg-yellow-500',
+        letterPosition:4
     },
     {
         id: Math.random()*100000,
         letterId: Math.random()*20000,
         letters: ["V","A","G","U","E"],
         hint: "U is not in the word in any spot.",
-        colorClass: 'bg-red-600',
-        position:2
+        color:'bg-red-500',
+        letterPosition:3
     }
 ]
