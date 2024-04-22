@@ -15,7 +15,7 @@ export const useStore = create<StoreState & StoreActions>()(
     persist(
         (set)=>({
             answer: getRandomWord(),
-            guesses: ['hello', 'store', 'penny', 'suhel', 'vinay'],
+            guesses: ['hello', 'store', 'penny', 'suhel', 'vinay', ],
             addGuess: (userGuess)=> set((state)=>({guesses: [...state.guesses,userGuess] }))
         }),
         {

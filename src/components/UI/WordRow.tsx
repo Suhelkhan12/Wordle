@@ -1,3 +1,4 @@
+import { useStore } from "../../store/store";
 import { LetterStates } from "../../types";
 import { checkValidityOfGuess } from "../../utils/word-util";
 
@@ -5,7 +6,7 @@ type WordRowPropType = {
   letter: string;
 };
 
-const LETTER_LENGTH = 5;
+export const LETTER_LENGTH = 5;
 
 type LetterBoxProp = {
   letter: string;
@@ -34,10 +35,12 @@ const LetterBox = ({ letter, letterState }: LetterBoxProp) => {
 };
 
 const WordRow = ({ letter }: WordRowPropType) => {
-  const guessState = checkValidityOfGuess(letter);
+  const answer = useStore((state) => state.answer);
   // we did this so that we can conver our string letter into array and we can easity map over it
   const letterRemaining = LETTER_LENGTH - letter.length;
   const letterArray = letter.split("").concat(Array(letterRemaining).fill(""));
+
+  const guessState = checkValidityOfGuess(letter, answer);
   return (
     <div className="grid grid-cols-5 gap-2 ">
       {letterArray.length > 0 &&
