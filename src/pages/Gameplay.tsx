@@ -1,19 +1,19 @@
 import { useState } from "react";
 import WordRow from "../components/UI/WordRow";
-import { useStore } from "../store/store";
+import { GuessRow, useStore } from "../store/store";
 import { LETTER_LENGTH } from "../components/UI/WordRow";
 const GUESS_LENGTH = 6;
 
 const Gameplay = () => {
   const [guess, setGuess] = useState<string>("");
-  const guesses = useStore((state) => state.guesses);
+  const guesses = useStore((state) => state.rows);
   const addGuess = useStore((state) => state.addGuess);
   const newGame = useStore((state) => state.newGame);
 
-  let rows = [...guesses];
+  let rows: GuessRow[] = [...guesses];
   console.log(rows.length);
   if (rows.length < GUESS_LENGTH) {
-    rows.push(guess);
+    rows.push({ guess });
   }
   //handling game end state
   const isGameOver = GUESS_LENGTH === guesses.length;
@@ -34,8 +34,8 @@ const Gameplay = () => {
   return (
     <main className="h-screen flex justify-center items-center sm:pt-10 pt-14  text-white flex-col">
       <div className="flex flex-col gap-2">
-        {rows.map((word, index) => (
-          <WordRow letter={word} key={index} />
+        {rows.map(({ guess, result }, index) => (
+          <WordRow letter={guess} key={index} result={result} />
         ))}
       </div>
 

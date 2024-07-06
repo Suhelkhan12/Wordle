@@ -1,10 +1,16 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { getRandomWord } from "../utils/word-util";
+import { checkValidityOfGuess, getRandomWord } from "../utils/word-util";
+import { LetterStates } from "../types";
+
+export interface GuessRow {
+    guess: string,
+    result?: LetterStates[]
+}
 
 type StoreState = {
     answer:string
-    guesses:string[]
+    rows:GuessRow[]
 }
 
 type StoreActions = {
@@ -14,19 +20,27 @@ type StoreActions = {
 
 export const useStore = create<StoreState & StoreActions>()(
     persist(
-        (set)=>({
+        (set) => ({
             answer: getRandomWord(),
-            guesses: ['hello', 'store', 'penny', ],
-            addGuess: (userGuess)=> set((state)=>({guesses: [...state.guesses,userGuess] })),
-            newGame: ()=> {
+            rows: [],
+            addGuess: (userGuess) => set((state) => ({
+                rows: [
+                    ...state.rows,
+                    {
+                        guess: userGuess,
+                        result: checkValidityOfGuess(userGuess, state.answer)
+                    }
+                ]
+            })),
+            newGame: () => {
                 set({
                     answer: getRandomWord(),
-                    guesses: []
-                })
+                    rows: []
+                });
             }
         }),
         {
-            name:'wordle-word'
+            name: 'wordle-word'
         }
     )
-)
+);
