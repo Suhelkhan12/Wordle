@@ -8,15 +8,22 @@ type StoreState = {
 }
 
 type StoreActions = {
-    addGuess: (userGuess:string)=>void
+    addGuess: (userGuess:string)=>void,
+    newGame: ()=>void
 }
 
 export const useStore = create<StoreState & StoreActions>()(
     persist(
         (set)=>({
             answer: getRandomWord(),
-            guesses: ['hello', 'store', 'penny', 'suhel', 'vinay', ],
-            addGuess: (userGuess)=> set((state)=>({guesses: [...state.guesses,userGuess] }))
+            guesses: ['hello', 'store', 'penny', ],
+            addGuess: (userGuess)=> set((state)=>({guesses: [...state.guesses,userGuess] })),
+            newGame: ()=> {
+                set({
+                    answer: getRandomWord(),
+                    guesses: []
+                })
+            }
         }),
         {
             name:'wordle-word'
