@@ -1,12 +1,12 @@
 import { useState } from "react";
 import WordRow from "../components/UI/WordRow";
-import { GuessRow, useStore } from "../store/store";
+import { GuessRow, useStore, GUESS_LENGTH, GameStates } from "../store/store";
 import { LETTER_LENGTH } from "../components/UI/WordRow";
-const GUESS_LENGTH = 6;
 
 const Gameplay = () => {
   const [guess, setGuess] = useState<string>("");
   const guesses = useStore((state) => state.rows);
+  const gameState = useStore((state) => state.gameState);
   const addGuess = useStore((state) => state.addGuess);
   const newGame = useStore((state) => state.newGame);
 
@@ -16,7 +16,7 @@ const Gameplay = () => {
     rows.push({ guess });
   }
   //handling game end state
-  const isGameOver = GUESS_LENGTH === guesses.length;
+  const isGameOver = gameState !== GameStates.playing;
 
   const numberOfGuessRemaining = GUESS_LENGTH - rows.length;
   rows = rows.concat(Array(numberOfGuessRemaining).fill(""));
@@ -53,7 +53,9 @@ const Gameplay = () => {
       {isGameOver && (
         <div className=" fixed top-0 flex-col min-h-screen w-screen flex items-center justify-center bg-black/50">
           <div className=" border border-black max-w-[300px] text-center w-full py-4 rounded-lg bg-white text-black text-[1.5rem] mx-auto  ">
-            <span className=" block mb-12">Game Over!</span>
+            <span className=" block mb-12">
+              {gameState === GameStates.lost ? "Game Over!" : "You won!"}
+            </span>
             <div className=" mx-auto flex">
               <button
                 onClick={() => {
